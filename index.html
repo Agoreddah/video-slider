@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Video visualization</title>
+		<meta name="description" content="Demo project">
+		<meta name="author" content="Tomas Chudjak">
+		
+		<link href='https://fonts.googleapis.com/css?family=Roboto:700,300,100' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			.loader{
+				width:100%;
+				height:100%;
+				background:#0a3d4e;
+				display:block;
+				position:absolute;
+				top:0;
+				left:0;
+				z-index: 9999;
+			}
+			.loading{
+				position:absolute;
+				height:60px;
+				font-size:60px;
+				color:#fff;
+				text-align:center;
+				top:50%;
+				margin-top:-30px;
+				width:100%;
+				font-weight:100;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="loader" class="loader">
+			<h2 class="loading">Loading...</h2>
+		</div>
+		<div id="slider">
+			<ul class="slider">
+				<li class="slide slide1 active">
+					<video id="video1f" class="video-front">
+						<source src="video/video01.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<div id="animation1" class="animated animated1">
+						<h1 class="title"><strong>3D Building</strong> visualization</h1>
+					</div>
+				</li>
+
+				<li class="slide slide2">
+					<video id="video2f" class="video-front">
+						<source src="video/video02.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<video id="video2b" class="video-back">
+						<source src="video/revers/video02R.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<div id="animation2" class="animated animated2">
+						<h1 id="anim2-title" class="title"><strong>Dubai</strong><br />Flower</h1>
+						<p id="anim2-text1"><span>Developer</span> Mittal buildings Ltd.</p>
+						<p id="anim2-text2"><span>Architect</span> Bahid Yara</p>
+						<p id="anim2-text3"><span>Year</span> 2026</p>
+						<p id="anim2-text4" class="site"><span>website</span> <a href="#">www.dubaiflower.com</a></p>
+					</div>
+				</li>
+				<li class="slide slide3">
+					<video id="video3f" class="video-front">
+						<source src="video/video03.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<video id="video3b" class="video-back">
+						<source src="video/revers/video03R.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<div id="animation3" class="animated animated3">
+						<div class="box">
+							<h1 id="anim3-title" class="title"><strong>Project</strong><br />Details</h1>
+						</div>
+						<div class="box">
+							<p id="anim3-text1" class="anim3-text"><span>120</span> metres</p>
+							<p id="anim3-text2" class="anim3-text"><span>64</span> apartments</p>
+							<p id="anim3-text3" class="anim3-text"><span>5</span> shopping places</p>
+						</div>
+						<div class="box">
+							<p id="anim3-text4" class="anim3-text"><span>54 000</span> m2 available</p>
+							<p id="anim3-text5" class="anim3-text"><span>12</span> swimming pools</p>
+							<p id="anim3-text6" class="anim3-text"><span>3</span> cinemas</p>
+						</div>
+					</div>
+				</li>
+				<li class="slide slide4">
+					<video id="video4f" class="video-back">
+						<source src="video/revers/video04R.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<h1 class="slide-title">Video 4</h1>
+				</li>
+				<!--<li class="slide slide5" data-next="7" data-prev="6">
+					<video id="video5" class="slide-video">
+						<source src="video/revers/video06R.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<h1 class="slide-title">Video 5</h1>
+				</li>
+				<li class="slide slide6" data-next="5">
+					<video id="video6" class="slide-video">
+						<source src="video/revers/video07R.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<h1 class="slide-title">Video 6</h1>
+				</li>
+				<li class="slide slide7" data-next="3" data-prev="2">
+					<video id="video7" class="slide-video">
+						<source src="video/revers/video08R.mp4" type="video/mp4" autostart="false"></source>
+					</video>
+					<h1 class="slide-title">Video 7 - posledné</h1>
+				</li>-->
+			</ul>
+			<div class="controls">
+				<span class="control left"></span>
+				<span class="control right"></span>
+			</div>
+		</div>
+		<script src="js/minified/TweenMax.min.js"></script>
+		<script src="js/minified/TimelineLite.min.js"></script>
+		<script src="js/videoSlider.js"></script>
+		<script>
+			var videoSlider = new VideoSlider();
+			var animation1 = document.getElementById('animation1');
+			var tween1 = TweenMax.to(animation1, 0.75, {opacity:1,right:"0", delay:1.8});
+			var speed = 0.75;
+			
+			
+			function hideLoader(cb){
+				var loader = document.getElementById('loader');
+				TweenMax.to(loader, 0.75, {display:"none"});
+				if(cb){
+					cb;
+				}
+			}
+			
+			window.onload = function() {
+			  	videoSlider.init();
+			  	hideLoader(tween1);
+			};
+
+		</script>
+	</body>
+</html>

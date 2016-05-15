@@ -1,0 +1,147 @@
+body{
+	font-family:'Roboto', Arial, sans-serif;
+	font-weight:300;
+	color:#0a3d4e;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family:'Roboto', Arial, sans-serif;
+	font-weight:300;
+}
+strong{
+	font-weight:700;
+}
+#slider{
+	width:100vw;
+	height:100vh;
+	position:relative;
+	display:block;
+	overflow:hidden;
+}
+ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	width:100vw;
+	height:100vh;
+	display:block;
+	position:relative;
+}
+.slide{
+	width:100vw;
+	height:100%;
+	display:block;
+	position:absolute;
+	margin:0;
+	padding:0;
+	float:none;
+	z-index: 0;
+}
+.slide.active{
+	z-index: 2;
+}
+.slide video{
+	position:absolute;
+	top:0;
+	left:0;
+	width: 100%;
+    min-width: 100%;
+    height: auto;
+}
+.slide video.active{
+	z-index: 3;
+}
+
+.controls{
+position: absolute;
+    display: block;
+    z-index: 10;
+    cursor: pointer;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -25px;
+}
+.controls > .left,
+.controls > .right{
+    width: 70px;
+    height: 128px;
+    display: block;
+    position: absolute;
+    background:url(../images/arrows.png) 0 0 no-repeat;
+}
+.controls > *.hidden{
+	display:none;
+}
+.controls .left{
+	left:0;
+	right:auto;
+}
+.controls .right{
+	right:0;
+	left:auto;
+	background-position:-70px 0;
+}
+.animated1{
+	position: absolute;
+    top: 5rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    opacity:0;
+    right:-75px;
+}
+.animated2{
+	position: absolute;
+    top: 3rem;
+    left: 10%;
+}
+.animated2 h1{
+	font-size: 5rem;
+    letter-spacing: -0.2px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    margin-left: -5px;
+    font-weight: 100;
+}
+.animated2 p{
+	font-size:1.2rem;
+}
+.animated2 span {
+    font-weight: 700;
+    width: 140px;
+    display: block;
+    float: left;
+}
+.animated2 .site a {
+    color: #0A3D4E;
+}
+.animated3{
+	position: absolute;
+    top: 3rem;
+    width: 70%;
+    left: 15%;
+    display: flex;
+}
+.animated3 .box{
+	flex: 1;
+	flex-grow:1;
+}
+.animated3 .box:first-child{
+	flex-grow:2;
+}
+.animated3 .title{
+	font-size: 5rem;
+    line-height: 5.6rem;
+    margin: 0;
+}
+.animated3 .title strong{
+	text-transform:uppercase;
+}
+.animated3 .box p{
+	margin-top:0.4rem;
+	font-size:1.8rem;
+}
+.animated3 span{
+	font-weight:bold;
+}
